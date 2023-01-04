@@ -131,10 +131,11 @@
 ((identifier) @variable.builtin
  (#eq? @variable.builtin "self"))
 
-(variable_list
-   attribute: (attribute
-     (["<" ">"] @punctuation.bracket
-      (identifier) @attribute)))
+;; This Breaks on Windows, theses exact 4 lines below
+;(variable_list
+;   attribute: (attribute
+;     (["<" ">"] @punctuation.bracket
+;      (identifier) @attribute)))
 
 ;; Constants
 
