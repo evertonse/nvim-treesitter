@@ -231,8 +231,6 @@
 
 (virtual_specifier) @virtual.specifier
 
-;Keywords
-("override" @keyword.override (#set! "priority" 105))
 ; Functions
 
 ; These casts are parsed as function calls, but are not.
@@ -272,8 +270,8 @@
 
 (qualified_identifier name: (identifier) @type.enum.variant)
 
-(auto) @type
-"decltype" @type
+(auto) @keyword
+"decltype" @keyword
 
 (ref_qualifier ["&" "&&"] @type.builtin)
 (reference_declarator ["&" "&&"] @type.builtin)
@@ -361,4 +359,44 @@
 
 (raw_string_literal) @string
 
+(placeholder_type_specifier) @keyword
+(type_descriptor) @type.descriptor
 ; inherits: c
+
+([
+ "catch"
+ "class"
+ "co_await"
+ "co_return"
+ "co_yield"
+ "constexpr"
+ "constinit"
+ "consteval"
+ "delete"
+ "explicit"
+ "final"
+ "friend"
+ "mutable"
+ "namespace"
+ "noexcept"
+ "new"
+ "override"
+ "private"
+ "protected"
+ "public"
+ "template"
+ "throw"
+ "try"
+ "typename"
+ "using"
+ "virtual"
+ "concept"
+ "requires"
+] @keyword(#set! "priority" 105))
+
+(trailing_return_type 
+   (type_descriptor)@keyword) 
+
+(((type_descriptor) @keyword.override
+  (#lua-match? @keyword.override "override"))
+(#set! "priority" 105))
