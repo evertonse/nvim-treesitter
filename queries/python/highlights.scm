@@ -31,7 +31,7 @@
     attribute: (identifier) @field)
  (#match? @field "^([A-Z])@!.*$"))
 
-((identifier) @type.builtin
+(((identifier) @type.builtin
  (#any-of? @type.builtin
               ;; https://docs.python.org/3/library/exceptions.html
               "BaseException" "Exception" "ArithmeticError" "BufferError" "LookupError" "AssertionError" "AttributeError"
@@ -46,8 +46,8 @@
               "UserWarning" "DeprecationWarning" "PendingDeprecationWarning" "SyntaxWarning" "RuntimeWarning"
               "FutureWarning" "ImportWarning" "UnicodeWarning" "BytesWarning" "ResourceWarning"
               ;; https://docs.python.org/3/library/stdtypes.html
-              "bool" "int" "float" "complex" "list" "tuple" "range" "str"
-              "bytes" "bytearray" "memoryview" "set" "frozenset" "dict" "type"))
+              "super" "bool" "int" "float" "complex" "list" "tuple" "range" "str"
+              "bytes" "bytearray" "memoryview" "set" "frozenset" "dict" "type"))(#set! "priority" 105))
 
 ((assignment
   left: (identifier) @type.definition
@@ -226,6 +226,7 @@
 
 ; Keywords
 [
+  "f\""
   "and"
   "in"
   "is"
@@ -248,7 +249,6 @@
   "exec"
   "global"
   "nonlocal"
-  "pass"
   "print"
   "with"
   "as"
@@ -270,7 +270,7 @@
 
 ["if" "elif" "else" "match" "case"] @conditional
 
-["for" "while" "break" "continue"] @repeat
+["pass" "for" "while" "break" "continue"] @repeat
 
 [
   "try"

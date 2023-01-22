@@ -400,3 +400,4 @@
 (((type_descriptor) @keyword.override
   (#lua-match? @keyword.override "override"))
 (#set! "priority" 105))
+
