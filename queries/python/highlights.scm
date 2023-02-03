@@ -226,7 +226,6 @@
 
 ; Keywords
 [
-  "f\""
   "and"
   "in"
   "is"
